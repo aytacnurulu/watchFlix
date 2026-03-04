@@ -355,3 +355,285 @@
   max-width: 250px;
   padding: var(--space-6);
 }
+
+/*  */
+/*  */
+/*  */
+/*  */
+/* HOME PAGE */
+/*  */
+/*  */
+/*  */
+
+.home-page #carouselExampleAutoplaying::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0) 60%
+  );
+  z-index: 1;
+}
+
+.home-page #carouselExampleAutoplaying .carousel-caption {
+  z-index: 2; /* yazılar gradientin üstündə qalsın */
+}
+.carousel-img {
+  width: 100%;
+  height: 80vh;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+.carousel-caption {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  max-width: 450px;
+  text-align: left;
+  /* background-color: black; */
+}
+.movie-title {
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-bold);
+}
+.movie-description {
+  font-size: var(--fs-body);
+  color: var(--secondary-text-color);
+  line-height: var(--lh-relaxed);
+}
+
+.home-watch-btn {
+  padding: var(--space-3) var(--space-5);
+  font-size: var(--fs-body);
+  background-color: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  border-radius: var(--radius-3);
+  cursor: pointer;
+}
+.home-watch-btn {
+  padding: var(--space-3) var(--space-5);
+  font-size: var(--fs-body);
+  background-color: transparent;
+  color: var(--text-color);
+
+  /* borderi pseudo-elementlə edəcəyik */
+  border: 1px solid transparent;
+  border-radius: var(--radius-3);
+
+  cursor: pointer;
+  position: relative;
+  isolation: isolate; /* pseudo-lar buttonun arxasında rahat işləsin */
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.home-watch-btn > span {
+  position: relative;
+  z-index: 2; /* yazı həmişə üstdə qalsın */
+}
+
+/* Rəngli, animasiyalı border */
+.home-watch-btn::before {
+  content: "";
+  position: absolute;
+  inset: -2px; /* border qalınlığı (2px) */
+  border-radius: inherit;
+  z-index: 0;
+
+  background: conic-gradient(
+    from 0deg,
+    #ff3cac,
+    #784ba0,
+    #2b86c5,
+    #00c2ff,
+    #00ffa3,
+    #ffd86f,
+    #ff3cac
+  );
+
+  /* yalnız “kənar” görünsün (içi şəffaf qalsın) */
+  padding: 2px;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  filter: saturate(1.2);
+  opacity: 0.95;
+
+  animation: borderSpin 4s linear infinite;
+  animation-play-state: paused; /* default dayanmış */
+}
+
+/* Hover-da border fırlansın + azacıq glow */
+.home-watch-btn:hover::before {
+  animation-play-state: running;
+  filter: saturate(1.4) blur(0.2px);
+}
+
+/* Shine effekti (hover zamanı “parıltı xətti” keçir) */
+.home-watch-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: 1;
+
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.35) 45%,
+    transparent 60%
+  );
+
+  transform: translateX(-140%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* =========================
+   HOME SECTION (base)
+========================= */
+
+/* section wrapper */
+.home-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 56px;
+  gap: var(--space-6);
+}
+
+/* section title */
+.home-section-title {
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-regular);
+  padding-left: var(--space-4);
+}
+.home-section-title__arrow {
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-regular);
+  padding-left: var(--space-2);
+}
+
+/* horizontal movie row */
+.home-action-movies-container {
+  display: flex;
+  gap: var(--space-4);
+
+  width: 100%;
+  max-width: 100%;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+  flex-wrap: nowrap;
+
+  -webkit-overflow-scrolling: touch;
+
+  /* scrollbar gizlə */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/old Edge */
+}
+.home-action-movies-container::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Edge */
+  height: 0;
+}
+
+/* movie card */
+.home-action-movie-card {
+  width: 250px;
+  height: 350px;
+
+  flex: 0 0 auto; /* kartlar sıxılmasın */
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.home-action-movie-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* overlays */
+.home-action-movie-card .category-text,
+.home-action-movie-card .home-action-movie-title {
+  position: absolute;
+  left: var(--space-3);
+  z-index: 2;
+}
+
+.home-action-movie-card .category-text {
+  bottom: calc(var(--space-6) + 8px);
+}
+
+.home-action-movie-card .home-action-movie-title {
+  bottom: var(--space-4);
+  font-size: var(--fs-body);
+  color: var(--text-color);
+}
+
+/* =========================
+   NEWLY ADDED (modifier)
+   - bigger cards
+   - no gap
+========================= */
+
+.home-content.newly-added .home-action-movies-container {
+  gap: 0; /* newly added üçün aralıq olmasın */
+}
+
+.home-content.newly-added .home-action-movie-card {
+  width: 300px;
+  height: 400px;
+}
+
+/* "New" badge yalnız newly-added kartlarda */
+.home-content.newly-added .home-action-movie-card::after {
+  content: "New";
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  z-index: 3;
+
+  color: var(--background-color);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-bold);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-2);
+
+  background: linear-gradient(
+    45deg,
+    #ff3cac,
+    #784ba0,
+    #2b86c5,
+    #00c2ff,
+    #00ffa3,
+    #ffd86f,
+    #ff3cac
+  );
+  pointer-events: none;
+}
+
+.home-section-title {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-regular);
+  padding-left: var(--space-4);
+}
+
+.home-section-title__arrow {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-regular);
+  padding-left: var(--space-2);
+}
