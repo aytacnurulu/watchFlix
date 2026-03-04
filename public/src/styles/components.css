@@ -1,0 +1,220 @@
+/* Buttons */
+.btn {
+  height: var(--control-h);
+  padding: 0 var(--space-6);
+  border-radius: var(--radius-2);
+  border: 1px solid transparent;
+  background: var(--primary-color);
+  color: var(--text-color);
+  font-weight: var(--fw-medium);
+  cursor: pointer;
+  transition:
+    transform var(--tr-fast),
+    opacity var(--tr-fast);
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Field */
+.field {
+  display: grid;
+  gap: var(--space-2);
+}
+
+/* Input group (icon left + optional icon right) */
+.input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  height: var(--control-h);
+  padding-left: calc(var(--space-6) + var(--icon-size));
+  padding-right: calc(var(--space-6) + var(--icon-size));
+  border-radius: var(--radius-2);
+  border: 1px solid var(--border-color);
+  background: var(--surface-color);
+  color: var(--text-color);
+}
+/* Chrome autofill white/yellow background fix */
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus,
+.input:-webkit-autofill:active {
+  -webkit-text-fill-color: var(--text-color);
+  -webkit-box-shadow: 0 0 0 1000px var(--surface-color) inset;
+  box-shadow: 0 0 0 1000px var(--surface-color) inset;
+  transition: background-color 9999s ease-out 0s;
+}
+.input::placeholder {
+  color: var(--secondary-text-color);
+  opacity: 0.55;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 var(--space-2) var(--focus-ring);
+}
+
+.icon {
+  position: absolute;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  opacity: 0.65;
+}
+
+.icon--left {
+  left: var(--space-4);
+}
+.icon--right {
+  right: var(--space-4);
+  cursor: pointer;
+}
+
+/* Link */
+.link {
+  color: var(--secondary-text-color);
+  font-size: var(--fs-small);
+  text-decoration: underline;
+  text-underline-offset: var(--space-1);
+}
+.link:hover {
+  color: var(--primary-color);
+}
+.link:active {
+  color: var(--primary-color);
+  opacity: 0.8;
+}
+/* Auth layout components */
+.auth {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: var(--space-7) var(--space-5);
+}
+
+.auth__wrap {
+  width: 100%;
+  max-width: var(--auth-max);
+  text-align: center;
+  display: grid;
+  gap: var(--space-5);
+}
+
+.brand {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-3);
+}
+
+.brand__logo {
+  width: clamp(64px, 8vw, 96px);
+  height: auto;
+}
+
+.brand__name {
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-regular);
+  letter-spacing: var(--ls-tight);
+}
+
+.auth__title {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-regular);
+  color: var(--secondary-text-color);
+}
+
+.auth__form {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.auth__actions {
+  display: grid;
+  gap: var(--space-3);
+  justify-items: start;
+}
+
+/* input-group konteyneri "anchor" olsun */
+.input-group {
+  position: relative;
+}
+
+/* sağdakı toggle button */
+.icon-btn {
+  position: absolute;
+  right: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  height: var(--control-h);
+  width: var(--control-h);
+
+  display: grid;
+  place-items: center;
+
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+
+  color: var(--secondary-text-color);
+  z-index: 2;
+}
+
+/* FontAwesome icon ölçüsü */
+.icon-btn i {
+  font-size: var(--icon-size);
+  line-height: 1;
+}
+
+/* input-un sağ padding-i toggle düyməsinə yer açsın */
+.input {
+  padding-right: calc(var(--control-h) + var(--space-3));
+}
+
+/* soldakı icon (səndə img ilədir) */
+.icon--left {
+  position: absolute;
+  left: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+/* soldakı icon üçün də input padding-left lazımdırsa */
+.input {
+  padding-left: calc(var(--space-6) + var(--icon-size));
+}
+
+.client-sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 56px;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-4) 0;
+  gap: var(--space-4);
+}
+
+.client-sidebar a img:nth-child(0) {
+  padding-top: 40px;
+  padding-bottom: 70px;
+}
+
+.client-sidebar__icons{
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}

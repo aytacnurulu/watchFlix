@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" href="../src/styles/main.css" />
+  </head>
+  
+  <body>
+    <main class="auth">
+      <div class="auth__wrap">
+        <div class="brand">
+          <img
+            class="brand__logo"
+            src="../assets/img/logo.svg"
+            alt="Filmalisa"
+          />
+          <div class="brand__name">filmalisa</div>
+        </div>
+
+        <h2 class="auth__title">register</h2>
+
+        <form class="auth__form">
+          <!-- Full name -->
+          <div class="field">
+            <div class="input-group">
+              <!-- Əgər user iconun başqa addadırsa dəyiş -->
+              <img class="icon icon--left" src="../assets/icons/user.svg" alt="" />
+              <input class="input" type="text" placeholder="full name" />
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="field">
+            <div class="input-group">
+              <img class="icon icon--left" src="../assets/icons/mail.svg" alt="" />
+              <input class="input" type="email" placeholder="email" />
+            </div>
+          </div>
+
+          <!-- Password -->
+          <div class="field">
+            <div class="input-group">
+              <img class="icon icon--left" src="../assets/icons/lock.svg" alt="" />
+              <input id="password" class="input" type="password" placeholder="password" />
+
+              <button
+                type="button"
+                class="icon-btn"
+                aria-label="Show password"
+                id="togglePass"
+              >
+                <!-- password GİZLİDİR → eye-slash görünsün -->
+                <span class="icon-eye-open" hidden><i class="fa-solid fa-eye"></i></span>
+                <span class="icon-eye-closed"><i class="fa-solid fa-eye-slash"></i></span>
+              </button>
+            </div>
+          </div>
+
+          <div class="auth__actions">
+            <a class="link" href="../client/login.html"
+              >Do you have a account? Login here</a
+            >
+          </div>
+
+          <button class="btn" type="submit">register</button>
+        </form>
+      </div>
+    </main>
+
+    <script src="../src/js/utils/toggle.js"></script>
+  </body>
+</html>

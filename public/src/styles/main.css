@@ -1,0 +1,6 @@
+/* src/styles/main.css */
+@import "../styles/base.css";
+@import "../styles/components.css";
+@import "../styles/pages.css";
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css";
+
