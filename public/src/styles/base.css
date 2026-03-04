@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+:root{
+  --roboto-font-family: "Roboto", sans-serif;
+
+  /* colors */
+  --background-color: black;
+  --landing-border-color:#1D1D1D;
+  --surface-color: rgba(0,0,0,.10);          /* input bg kimi */
+  --text-color: #FFFFFF;
+  --secondary-text-color: #C3C8D4;
+
+  --primary-color: #9B51E0;
+  --border-color: #323B54;
+  --focus-ring: rgba(155,81,224,.25);
+
+  /* spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* radius */
+  --radius-1: 8px;
+  --radius-2: 12px;
+  --radius-3: 16px;
+  --radius-pill: 999px;
+
+  /* sizes */
+  --container-max: 1120px;
+  --auth-max: 520px;
+  --control-h: 48px;              /* input/button h */
+  --icon-size: 18px;
+
+  /* typography (səndə var idi, saxlayıram) */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  --lh-tight: 1.1;
+  --lh-snug: 1.25;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.7;
+
+  --ls-tight: -0.02em;
+  --ls-normal: 0;
+
+  --fs-title: 60px;
+  --fs-body: 16px;
+  --fs-small: 13px;
+  --fs-h1: clamp(28px, 3.5vw, 44px);
+  --fs-h2: clamp(18px, 2vw, 24px);
+
+  /* shadows */
+  --shadow-1: 0 8px 24px rgba(0,0,0,.35);
+
+  /* transitions */
+  --tr-fast: .15s ease;
+}
+
+body{
+  font-family: var(--roboto-font-family);
+  background: var(--background-color);
+  color: var(--text-color);
+  line-height: var(--lh-normal);
+}
+
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+*:not(dialog) {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
