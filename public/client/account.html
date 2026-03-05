@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Account</title>
+
+  <!-- əsas stillər -->
+  <link rel="stylesheet" href="../src/styles/main.css" />
+  <!-- bu faylı əlavə et: -->
+  <link rel="stylesheet" href="../src/styles/account.css" />
+
+  <!-- FontAwesome göz ikonları üçün -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- Sidebar: sadəcə konteyner – script özü dolduracaq -->
+  <div id="client-sidebar"></div>
+
+  <!-- Hesab məlumatları -->
+  <main class="auth account">
+    <div class="auth__wrap account__wrap">
+      <!-- avatar dairəsi -->
+      <div class="account__avatar">
+        <img
+          class="account__avatar-img"
+          src="../assets/img/profileImg.jpg"
+          alt="Profile image"
+        />
+      </div>
+
+      <form class="account__form">
+        <!-- Profil şəkili linki -->
+        <div class="field">
+          <div class="input-group">
+            <img class="icon icon--left accountIcon" src="../assets/img/profileImg.jpg" alt="" />
+            <input class="input" type="url" placeholder="profile image url" />
+            <!-- sağdakı ikon (opsional, təkcə dizayn üçün) -->
+          </div>
+        </div>
+
+        <!-- Full name -->
+        <div class="field">
+          <div class="input-group">
+            <img class="icon icon--left accountIcon" src="../assets/icons/user.svg" alt="" />
+            <input class="input" type="text" placeholder="full name" />
+          </div>
+        </div>
+
+        <!-- E-poçt (readonly) -->
+        <div class="field">
+          <div class="input-group">
+            <img class="icon icon--left accountIcon" src="../assets/icons/mail.svg" alt="" />
+            <input class="input" type="email" value="rahimlisarkhan@gmail.com" readonly />
+            <img class="icon icon--right accountIcon" src="../assets/icons/lock.svg" alt="" />
+          </div>
+        </div>
+
+        <!-- Şifrə -->
+        <div class="field">
+          <div class="input-group">
+            <img class="icon icon--left accountIcon" src="../assets/icons/lock.svg" alt="" />
+            <input id="password" class="input" type="password" placeholder="password" />
+            <!-- göz ikonları (toggle) -->
+            <button type="button" class="icon-btn" aria-label="Toggle password" id="togglePass">
+              <span class="icon-eye-open"><i class="fa-solid fa-eye"></i></span>
+              <span class="icon-eye-closed" hidden><i class="fa-solid fa-eye-slash"></i></span>
+            </button>
+          </div>
+        </div>
+
+        <button class="btn account__btn" type="submit">save</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- sidebar script -->
+  <script src="../src/js/components/include-sidebar.js"></script>
+  <!-- password toggle -->
+  <script src="../src/js/utils/toggle.js"></script>
+</body>
+</html>
