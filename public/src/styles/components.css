@@ -1,49 +1,101 @@
-/* Buttons */
-.btn {
-  height: var(--control-h);
-  padding: 0 var(--space-6);
-  border-radius: var(--radius-2);
-  border: 1px solid transparent;
-  background: var(--primary-color);
-  color: var(--text-color);
-  font-weight: var(--fw-medium);
-  cursor: pointer;
-  transition:
-    transform var(--tr-fast),
-    opacity var(--tr-fast);
-}
-.btn:active {
-  transform: translateY(1px);
-}
-.btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
+/* =========================
+   LOGIN / AUTH COMPONENT CSS
+   Base CSS-inə uyğun
+========================= */
+
+/* Auth layout */
+.auth {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: var(--space-7) var(--space-5);
 }
 
-/* Field */
+.auth__wrap {
+  width: 100%;
+  max-width: var(--auth-max);
+  text-align: center;
+  display: grid;
+  gap: var(--space-5);
+}
+
+/* Brand */
+.brand {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-3);
+}
+
+.brand__logo {
+  width: clamp(64px, 8vw, 96px);
+  height: auto;
+}
+
+.brand__name {
+  font-size: var(--fs-title);
+  font-weight: var(--fw-regular);
+  letter-spacing: var(--ls-tight);
+  text-transform: lowercase;
+}
+
+/* Title */
+.auth__title {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-regular);
+  color: var(--secondary-text-color);
+}
+
+/* Form */
+.auth__form {
+  display: grid;
+  gap: var(--space-4);
+}
+
 .field {
   display: grid;
   gap: var(--space-2);
 }
 
-/* Input group (icon left + optional icon right) */
+/* Input group */
 .input-group {
   position: relative;
   display: flex;
   align-items: center;
 }
 
+/* INPUT FIX: radius + appearance reset */
 .input {
   width: 100%;
   height: var(--control-h);
+
   padding-left: calc(var(--space-6) + var(--icon-size));
-  padding-right: calc(var(--space-6) + var(--icon-size));
+  padding-right: calc(var(--control-h) + var(--space-3));
+
   border-radius: var(--radius-2);
   border: 1px solid var(--border-color);
   background: var(--surface-color);
   color: var(--text-color);
+
+  outline: none;
+
+  /* kvadrat problemi və default görünüşləri tam söndürür */
+  -webkit-appearance: none;
+  appearance: none;
+  background-clip: padding-box;
+  overflow: hidden;
 }
-/* Chrome autofill white/yellow background fix */
+
+.input::placeholder {
+  color: var(--secondary-text-color);
+  opacity: 0.55;
+}
+
+.input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 var(--space-2) var(--focus-ring);
+}
+
+/* Chrome autofill fix */
 .input:-webkit-autofill,
 .input:-webkit-autofill:hover,
 .input:-webkit-autofill:focus,
@@ -53,47 +105,328 @@
   box-shadow: 0 0 0 1000px var(--surface-color) inset;
   transition: background-color 9999s ease-out 0s;
 }
-.input::placeholder {
-  color: var(--secondary-text-color);
-  opacity: 0.55;
-}
 
-.input:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 var(--space-2) var(--focus-ring);
-}
-
+/* Icons */
 .icon {
   position: absolute;
   width: var(--icon-size);
   height: var(--icon-size);
   opacity: 0.65;
+  pointer-events: none;
 }
 
 .icon--left {
   left: var(--space-4);
-}
-.icon--right {
-  right: var(--space-4);
-  cursor: pointer;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-/* Link */
+/* Password toggle button */
+.icon-btn {
+  position: absolute;
+  right: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+
+  height: var(--control-h);
+  width: var(--control-h);
+
+  display: grid;
+  place-items: center;
+
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+
+  color: var(--secondary-text-color);
+
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.icon-btn:active {
+  transform: translateY(calc(-50% + 1px));
+}
+
+/* Actions */
+.auth__actions {
+  display: grid;
+  gap: var(--space-3);
+  justify-items: start;
+}
+
 .link {
   color: var(--secondary-text-color);
   font-size: var(--fs-small);
   text-decoration: underline;
   text-underline-offset: var(--space-1);
 }
+
 .link:hover {
   color: var(--primary-color);
 }
+
 .link:active {
-  color: var(--primary-color);
-  opacity: 0.8;
+  opacity: 0.85;
 }
-/* Auth layout components */
+
+/* Button (with animation) */
+.btn {
+  height: var(--control-h);
+  width: 100%;
+  border-radius: var(--radius-2);
+  border: 1px solid transparent;
+
+  background: var(--primary-color);
+  color: var(--text-color);
+  font-weight: var(--fw-medium);
+
+  cursor: pointer;
+
+  position: relative;
+  overflow: hidden;
+
+  transition:
+    transform var(--tr-fast),
+    box-shadow var(--tr-fast),
+    filter var(--tr-fast),
+    opacity var(--tr-fast);
+}
+
+/* Hover lift */
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-1);
+  filter: brightness(1.05);
+}
+
+/* Click press */
+.btn:active {
+  transform: translateY(0px);
+  filter: brightness(0.98);
+}
+
+/* Disabled */
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Shine animation */
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  transform: translateX(-120%) rotate(20deg);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+  transition: transform 600ms ease;
+}
+
+.btn:hover::after {
+  transform: translateX(120%) rotate(20deg);
+}
+.client-sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 56px;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-4) 0;
+  gap: var(--space-8);
+  padding-top: 40px;
+  z-index: 100;
+}
+
+/* .client-sidebar a img:nth-child(0) {
+  padding-top: 40px;
+  padding-bottom: 70px;
+} */
+
+.client-sidebar__icons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+/* Home component */
+.category-text {
+  font-size: var(--fs-small);
+  color: var(--main-blue);
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-1);
+  letter-spacing: var(--ls-wide);
+  columns: var(--main-blue);
+}
+
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/* MOVIE CARDS */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+
+/* =========================
+   MOVIE SHELF (Reusable Component)
+========================= */
+
+/* Default ölçülər dəyişmək üçün CSS variables */
+.movie-shelf {
+  --shelf-padding: 56px;
+  --shelf-gap: var(--space-4);
+
+  --card-w: 250px;
+  --card-h: 350px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--shelf-padding);
+  gap: var(--space-6);
+}
+
+/* Title */
+.movie-shelf__title {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-regular);
+  padding-left: var(--space-4);
+}
+.movie-shelf__arrow {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-regular);
+  padding-left: var(--space-2);
+}
+
+/* Horizontal row (scroll) */
+.movie-shelf__row {
+  display: flex;
+  gap: var(--shelf-gap);
+
+  width: 100%;
+  max-width: 100%;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+  flex-wrap: nowrap;
+
+  -webkit-overflow-scrolling: touch;
+
+  /* scrollbar gizlə */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.movie-shelf__row::-webkit-scrollbar {
+  display: none;
+  height: 0;
+}
+
+/* Card */
+.movie-card {
+  width: var(--card-w);
+  height: var(--card-h);
+
+  flex: 0 0 auto;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlays */
+.movie-card__category,
+.movie-card__title {
+  position: absolute;
+  left: var(--space-3);
+  z-index: 2;
+}
+
+.movie-card__category {
+  bottom: calc(var(--space-6) + 8px);
+}
+
+.movie-card__title {
+  bottom: var(--space-4);
+  font-size: var(--fs-body);
+  color: var(--text-color);
+}
+
+/* =========================
+   Modifiers (Reusable)
+========================= */
+
+/* daha kiçik ölçü (Action üçün də istifadə edirsən) */
+.movie-shelf--sm {
+  --shelf-padding: 40px;
+  --card-w: 220px;
+  --card-h: 310px;
+}
+
+/* Newly added: gap=0 + bir az böyük kart + New badge */
+.movie-shelf--new {
+  --shelf-gap: 0;
+  --card-w: 260px;
+  --card-h: 360px;
+}
+
+.movie-shelf--new .movie-card::after {
+  content: "New";
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  z-index: 3;
+
+  color: var(--background-color);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-bold);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-2);
+
+  background: linear-gradient(
+    45deg,
+    #ff3cac,
+    #784ba0,
+    #2b86c5,
+    #00c2ff,
+    #00ffa3,
+    #ffd86f,
+    #ff3cac
+  );
+  pointer-events: none;
+}
+
+.movie-shelf {
+  padding-left: 70px;
+}
+
+/* =========================
+   AUTH / LOGIN COMPONENT CSS
+   (Bootstrap .input-group ilə toqquşma yoxdur)
+========================= */
+
 .auth {
   min-height: 100vh;
   display: grid;
@@ -116,14 +449,15 @@
 }
 
 .brand__logo {
-  width: clamp(64px, 8vw, 96px);
+  width: 150px;
   height: auto;
 }
 
 .brand__name {
-  font-size: var(--fs-h1);
+  font-size: var(--fs-title);
   font-weight: var(--fw-regular);
   letter-spacing: var(--ls-tight);
+  text-transform: lowercase;
 }
 
 .auth__title {
@@ -137,23 +471,84 @@
   gap: var(--space-4);
 }
 
-.auth__actions {
+.field {
   display: grid;
-  gap: var(--space-3);
-  justify-items: start;
+  gap: var(--space-2);
 }
 
-/* input-group konteyneri "anchor" olsun */
-.input-group {
+/* ✅ Bootstrap input-group conflict fix: yeni ad */
+.auth-input-group {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
-/* sağdakı toggle button */
+/* LEFT ICON */
+.icon {
+  position: absolute;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.icon--left {
+  left: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+/* ✅ INPUT (radius fix + appearance reset) */
+.input {
+  width: 100%;
+  height: var(--control-h);
+
+  padding-left: calc(var(--space-6) + var(--icon-size));
+  padding-right: calc(var(--control-h) + var(--space-3));
+
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-2);
+  background: var(--surface-color);
+  color: var(--text-color);
+
+  outline: none;
+
+  /* inputun kvadrat qalmasını qəti söndürür */
+  -webkit-appearance: none;
+  appearance: none;
+  background-clip: padding-box;
+  overflow: hidden;
+}
+
+.input::placeholder {
+  color: var(--secondary-text-color);
+  opacity: 0.55;
+}
+
+.input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 var(--space-2) var(--focus-ring);
+}
+
+/* Chrome autofill fix */
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus,
+.input:-webkit-autofill:active {
+  -webkit-text-fill-color: var(--text-color);
+  -webkit-box-shadow: 0 0 0 1000px var(--surface-color) inset;
+  box-shadow: 0 0 0 1000px var(--surface-color) inset;
+  transition: background-color 9999s ease-out 0s;
+}
+
+/* Password toggle button */
 .icon-btn {
   position: absolute;
   right: var(--space-4);
   top: 50%;
   transform: translateY(-50%);
+
   height: var(--control-h);
   width: var(--control-h);
 
@@ -166,68 +561,103 @@
   cursor: pointer;
 
   color: var(--secondary-text-color);
-  z-index: 2;
+  z-index: 3;
+
+  -webkit-appearance: none;
+  appearance: none;
+
+  transition:
+    transform var(--tr-fast),
+    opacity var(--tr-fast);
 }
 
-/* FontAwesome icon ölçüsü */
-.icon-btn i {
-  font-size: var(--icon-size);
-  line-height: 1;
+.icon-btn:hover {
+  opacity: 0.9;
 }
 
-/* input-un sağ padding-i toggle düyməsinə yer açsın */
-.input {
-  padding-right: calc(var(--control-h) + var(--space-3));
+.icon-btn:active {
+  transform: translateY(calc(-50% + 1px));
 }
 
-/* soldakı icon (səndə img ilədir) */
-.icon--left {
-  position: absolute;
-  left: var(--space-4);
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
+/* Actions */
+.auth__actions {
+  display: grid;
+  justify-items: start;
 }
 
-/* soldakı icon üçün də input padding-left lazımdırsa */
-.input {
-  padding-left: calc(var(--space-6) + var(--icon-size));
-}
-
-.client-sidebar {
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100vh;
-  width: 56px;
-  background: transparent;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: var(--space-4) 0;
-  gap: var(--space-8);
-  padding-top: 40px;
-  z-index: 100;
-}
-
-/* .client-sidebar a img:nth-child(0) {
-  padding-top: 40px;
-  padding-bottom: 70px;
-} */
-
-.client-sidebar__icons{
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-8);
-}
-
-/* Home component */
-.category-text {
+.link {
+  color: var(--secondary-text-color);
   font-size: var(--fs-small);
-  color: var(--main-blue);
-  background-color: rgba(0, 0, 0, 0.4);
-  padding: var(--space-1) var(--space-3);
-  border-radius: var(--radius-1);
-  letter-spacing: var(--ls-wide);
-  columns: var(--main-blue);
+  text-decoration: underline;
+  text-underline-offset: var(--space-1);
+}
+
+.link:hover {
+  color: var(--primary-color);
+}
+
+/* =========================
+   BUTTON (animasiya)
+========================= */
+.btn {
+  height: var(--control-h);
+  width: 100%;
+
+  padding: 0 var(--space-6);
+  border-radius: var(--radius-2);
+  border: 1px solid transparent;
+
+  background: var(--primary-color);
+  color: var(--text-color);
+  font-weight: var(--fw-medium);
+
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  transition:
+    transform var(--tr-fast),
+    filter var(--tr-fast),
+    box-shadow var(--tr-fast),
+    opacity var(--tr-fast);
+}
+
+/* hover lift + glow */
+.btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+  box-shadow: var(--shadow-1);
+}
+
+/* click press */
+.btn:active {
+  transform: translateY(0px);
+  filter: brightness(0.98);
+}
+
+/* disabled */
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* shine effect */
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  transform: translateX(-120%) rotate(20deg);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+  transition: transform 650ms ease;
+}
+
+.btn:hover::after {
+  transform: translateX(120%) rotate(20deg);
 }

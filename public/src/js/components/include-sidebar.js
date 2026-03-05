@@ -1,16 +1,19 @@
+async function includeHTML(mountId, url) {
+  const el = document.getElementById(mountId);
+  if (!el) return; // həmin id bu səhifədə yoxdursa keç
 
+  try {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`Failed to load: ${url} (${res.status})`);
+    el.innerHTML = await res.text();
+  } catch (err) {
+    console.error(`Error loading ${mountId}:`, err);
+    el.innerHTML = "<p>Error loading sidebar</p>";
+  }
+}
 
-document.addEventListener('DOMContentLoaded', async () => {
-    const clientSidebar = document.getElementById('client-sidebar');
-    if (!clientSidebar) return;
-
-    try {
-        const response = await fetch('http://127.0.0.1:5501/public/partials/client-sidebar.html');
-        if (!response.ok) throw new Error('Failed to load sidebar');
-        const sidebarHTML = await response.text();
-        clientSidebar.innerHTML = sidebarHTML;
-    } catch (error) {
-        console.error('Error loading sidebar:', error);
-        clientSidebar.innerHTML = '<p>Error loading sidebar</p>';
-    }
+document.addEventListener("DOMContentLoaded", () => {
+  // Hansını istifadə edirsənsə, o işləyəcək:
+  includeHTML("client-sidebar", "../partials/client-sidebar.html");
+  includeHTML("sidebar", "../partials/sidebar.html");
 });
