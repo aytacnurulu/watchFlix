@@ -1,0 +1,168 @@
+/* =========================
+   ACCOUNT PAGE
+========================= */
+
+.account-page {
+  min-height: 100vh;
+  background: var(--background-color);
+  color: var(--text-color);
+}
+
+/* login/register məntiqi kimi */
+.account {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: var(--space-7) var(--space-5);
+}
+
+/* artıq wrap panel deyil */
+.account__wrap {
+  width: 100%;
+  max-width: 520px;
+  text-align: center;
+  display: grid;
+  gap: var(--space-5);
+}
+
+/* avatar */
+.account__avatar {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto;
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(180deg, #97ff4a, #64d8ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.account__avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+/* form */
+.account__form {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.account__form .field {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.account__form .auth-input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* inputlar login/register ilə eyni */
+.account__input,
+.account-page .input {
+  width: 100%;
+  height: var(--control-h);
+  padding-left: calc(var(--space-6) + var(--icon-size));
+  padding-right: calc(var(--control-h) + var(--space-3));
+  border-radius: var(--radius-2);
+  border: 1px solid var(--border-color);
+  background: var(--surface-color);
+  color: var(--text-color);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-clip: padding-box;
+  overflow: hidden;
+}
+
+.account__input::placeholder,
+.account-page .input::placeholder {
+  color: var(--secondary-text-color);
+  opacity: 0.55;
+}
+
+.account__input:focus,
+.account-page .input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 var(--space-2) var(--focus-ring);
+}
+
+.account__input[readonly] {
+  color: var(--text-color);
+  opacity: 0.95;
+  cursor: default;
+}
+
+/* soldakı ikon */
+.account__form .icon--left {
+  left: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+/* sağdakı dekor ikon */
+.account__input-action {
+  position: absolute;
+  right: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--secondary-text-color);
+  opacity: 0.7;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+/* password toggle də login/register ilə yaxın görünsün */
+.account__form .icon-btn {
+  position: absolute;
+  right: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  height: var(--control-h);
+  width: var(--control-h);
+  display: grid;
+  place-items: center;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  color: var(--secondary-text-color);
+  z-index: 3;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.account__form .icon-btn:active {
+  transform: translateY(calc(-50% + 1px));
+}
+
+/* button */
+.account__btn {
+  width: 100%;
+  margin-top: var(--space-5);
+}
+
+/* responsive */
+@media (max-width: 640px) {
+  .account {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .account__wrap {
+    max-width: 100%;
+  }
+
+  .account__avatar {
+    width: 140px;
+    height: 140px;
+  }
+}
