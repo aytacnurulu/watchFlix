@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard | WatchFlix</title>
+
+    <link rel="stylesheet" href="../src/styles/global/main.css" />
+    <link rel="stylesheet" href="../src/styles/pages/admin/dashboard.css" />
+  </head>
+  <body class="admin-layout">
+    <aside class="admin-sidebar">
+      <div class="admin-sidebar__brand">
+        <a class="admin-sidebar__brand-link" href="./dashboard.html">
+          <img
+            class="admin-sidebar__logo"
+            src="../assets/img/logo.svg"
+            alt="WatchFlix logo"
+          />
+          <span class="admin-sidebar__brand-text">WatchFlix</span>
+        </a>
+      </div>
+
+      <nav class="admin-sidebar__nav" aria-label="Admin navigation">
+        <a class="admin-sidebar__item admin-sidebar__item--active" href="./dashboard.html">
+          <i class="fa-solid fa-table-cells-large" aria-hidden="true"></i>
+          <span>Dashboard</span>
+        </a>
+
+        <a class="admin-sidebar__item" href="./movies.html">
+          <i class="fa-solid fa-film" aria-hidden="true"></i>
+          <span>Movies</span>
+        </a>
+
+        <a class="admin-sidebar__item" href="./categories.html">
+          <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+          <span>Categories</span>
+        </a>
+
+        <a class="admin-sidebar__item" href="./actors.html">
+          <i class="fa-solid fa-user-group" aria-hidden="true"></i>
+          <span>Actors</span>
+        </a>
+
+        <a class="admin-sidebar__item" href="./users.html">
+          <i class="fa-solid fa-users" aria-hidden="true"></i>
+          <span>Users</span>
+        </a>
+
+        <a class="admin-sidebar__item" href="./comments.html">
+          <i class="fa-regular fa-message" aria-hidden="true"></i>
+          <span>Comments</span>
+        </a>
+
+        <a class="admin-sidebar__item" href="./contactUs.html">
+          <i class="fa-regular fa-comment-dots" aria-hidden="true"></i>
+          <span>Contact us</span>
+        </a>
+
+        <a class="admin-sidebar__item admin-sidebar__item--logout" href="./login.html">
+          <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
+          <span>Logout</span>
+        </a>
+      </nav>
+    </aside>
+
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div class="admin-topbar__title-box">
+          <p class="admin-topbar__hello">Hi Admin</p>
+          <h1 class="admin-topbar__title">Dashboard</h1>
+        </div>
+
+        <div class="admin-topbar__actions">
+          <div class="admin-topbar__profile">
+            <img
+              class="admin-topbar__profile-img"
+              src="../assets/img/profile.png"
+              alt="Admin profile"
+            />
+            <span class="admin-topbar__profile-name">Admin</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="admin-dashboard">
+        <section class="admin-dashboard__grid">
+          <article class="dashboard-card">
+            <p class="dashboard-card__label">Favorite actions</p>
+            <h2 class="dashboard-card__value">121</h2>
+          </article>
+
+          <article class="dashboard-card">
+            <p class="dashboard-card__label">Users</p>
+            <h2 class="dashboard-card__value">10</h2>
+          </article>
+
+          <article class="dashboard-card">
+            <p class="dashboard-card__label">Movies</p>
+            <h2 class="dashboard-card__value">40</h2>
+          </article>
+
+          <article class="dashboard-card">
+            <p class="dashboard-card__label">Comments</p>
+            <h2 class="dashboard-card__value">45</h2>
+          </article>
+
+          <article class="dashboard-card">
+            <p class="dashboard-card__label">Categories</p>
+            <h2 class="dashboard-card__value">12</h2>
+          </article>
+
+          <article class="dashboard-card">
+            <p class="dashboard-card__label">Actors</p>
+            <h2 class="dashboard-card__value">20</h2>
+          </article>
+
+          <article class="dashboard-card">
+            <p class="dashboard-card__label">Contacts</p>
+            <h2 class="dashboard-card__value">20</h2>
+          </article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

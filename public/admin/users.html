@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Users | WatchFlix</title>
+
+    <link rel="stylesheet" href="../src/styles/global/main.css" />
+    <link rel="stylesheet" href="../src/styles/pages/admin/users.css" />
+  </head>
+  <body class="admin-layout">
+    <aside class="admin-sidebar">
+      <div class="admin-sidebar__brand">
+        <a class="admin-sidebar__brand-link" href="./dashboard.html">
+          <img
+            class="admin-sidebar__logo"
+            src="../assets/img/logo.svg"
+            alt="WatchFlix logo"
+          />
+          <span class="admin-sidebar__brand-text">WatchFlix</span>
+        </a>
+      </div>
+
+      <nav class="admin-sidebar__nav" aria-label="Admin navigation">
+        <a class="admin-sidebar__item" href="./dashboard.html">
+          <i class="fa-solid fa-table-cells-large" aria-hidden="true"></i>
+          <span>Dashboard</span>
+        </a>
+
+        <a class="admin-sidebar__item" href="./movies.html">
+          <i class="fa-solid fa-film" aria-hidden="true"></i>
+          <span>Movies</span>
+        </a>
+
+        <a class="admin-sidebar__item" href="./categories.html">
+          <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+          <span>Categories</span>
+        </a>
+
+        <a class="admin-sidebar__item" href="./actors.html">
+          <i class="fa-solid fa-user-group" aria-hidden="true"></i>
+          <span>Actors</span>
+        </a>
+
+        <a class="admin-sidebar__item admin-sidebar__item--active" href="./users.html">
+          <i class="fa-solid fa-users" aria-hidden="true"></i>
+          <span>Users</span>
+        </a>
+
+        <a class="admin-sidebar__item" href="./comments.html">
+          <i class="fa-regular fa-message" aria-hidden="true"></i>
+          <span>Comments</span>
+        </a>
+
+        <a class="admin-sidebar__item" href="./contactUs.html">
+          <i class="fa-regular fa-comment-dots" aria-hidden="true"></i>
+          <span>Contact us</span>
+        </a>
+
+        <a class="admin-sidebar__item admin-sidebar__item--logout" href="./login.html">
+          <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
+          <span>Logout</span>
+        </a>
+      </nav>
+    </aside>
+
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div class="admin-topbar__title-box">
+          <p class="admin-topbar__hello">Hi Admin</p>
+          <h1 class="admin-topbar__title">Users</h1>
+        </div>
+
+        <div class="admin-topbar__actions">
+          <div class="admin-topbar__profile">
+            <img
+              class="admin-topbar__profile-img"
+              src="../assets/img/profile.png"
+              alt="Admin profile"
+            />
+            <span class="admin-topbar__profile-name">Admin</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="users-page">
+        <section class="users-table-wrap">
+          <table class="users-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>john_doe</td>
+                <td>john@example.com</td>
+                <td>User</td>
+                <td>
+                  <div class="users-table__actions">
+                    <button
+                      type="button"
+                      class="table-action-btn table-action-btn--edit"
+                      data-bs-toggle="modal"
+                      data-bs-target="#userModal"
+                    >
+                      <i class="fa-regular fa-pen-to-square" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td>2</td>
+                <td>admin_jane</td>
+                <td>jane@example.com</td>
+                <td>Admin</td>
+                <td>
+                  <div class="users-table__actions">
+                    <button
+                      type="button"
+                      class="table-action-btn table-action-btn--edit"
+                      data-bs-toggle="modal"
+                      data-bs-target="#userModal"
+                    >
+                      <i class="fa-regular fa-pen-to-square" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td>3</td>
+                <td>michael23</td>
+                <td>michael@example.com</td>
+                <td>User</td>
+                <td>
+                  <div class="users-table__actions">
+                    <button
+                      type="button"
+                      class="table-action-btn table-action-btn--edit"
+                      data-bs-toggle="modal"
+                      data-bs-target="#userModal"
+                    >
+                      <i class="fa-regular fa-pen-to-square" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <div
+          class="modal fade users-modal"
+          id="userModal"
+          tabindex="-1"
+          aria-labelledby="userModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content users-modal__content">
+              <div class="users-modal__body">
+                <h2 class="users-modal__title" id="userModalLabel">Edit user</h2>
+
+                <form class="users-form">
+                  <input
+                    class="users-form__input"
+                    type="text"
+                    name="username"
+                    placeholder="Enter username"
+                    required
+                  />
+
+                  <input
+                    class="users-form__input"
+                    type="email"
+                    name="email"
+                    placeholder="Enter email"
+                    required
+                  />
+
+                  <select class="users-form__select" name="role" required>
+                    <option value="">Select role</option>
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                  </select>
+
+                  <button type="submit" class="users-form__submit">
+                    Submit
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,237 @@
+/* =========================
+   SEARCH PANEL PAGE
+========================= */
+
+.search-page {
+  min-height: 100vh;
+  background: var(--background-color);
+  color: var(--text-color);
+}
+
+.search-panel {
+  min-height: 100vh;
+  padding: 72px 40px 40px 88px;
+}
+
+.search-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+.search-panel__title {
+  font-size: clamp(28px, 3vw, 44px);
+  font-weight: var(--fw-bold);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.search-panel__arrow {
+  opacity: 0.85;
+}
+
+.search-panel__form {
+  width: 100%;
+  max-width: 360px;
+}
+
+.search-panel__input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.search-panel__input {
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.25);
+  color: var(--text-color);
+  outline: none;
+}
+
+.search-panel__input::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.search-panel__input:focus {
+  border-color: var(--primary-color);
+}
+
+.search-panel__plus {
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-color);
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.search-panel__plus:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* =========================
+   RESULTS GRID
+========================= */
+
+.search-results__grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(150px, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+/* =========================
+   SEARCH CARD
+========================= */
+
+.search-card {
+  width: 100%;
+  aspect-ratio: 300 / 440;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.search-card .movie-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.search-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.04) 0%,
+    rgba(0, 0, 0, 0.18) 48%,
+    rgba(0, 0, 0, 0.74) 100%
+  );
+  pointer-events: none;
+}
+
+.search-card .movie-card__category {
+  position: absolute;
+  left: 12px;
+  bottom: 72px;
+  z-index: 2;
+}
+
+.search-card__rating {
+  position: absolute;
+  left: 12px;
+  bottom: 46px;
+  z-index: 2;
+  color: #ffffff;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.search-card .movie-card__title {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 14px;
+  z-index: 2;
+  font-size: 15px;
+  font-weight: var(--fw-medium);
+  color: var(--text-color);
+  line-height: 1.25;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1400px) {
+  .search-results__grid {
+    grid-template-columns: repeat(4, minmax(160px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .search-results__grid {
+    grid-template-columns: repeat(3, minmax(160px, 1fr));
+    gap: 18px;
+  }
+}
+
+@media (max-width: 900px) {
+  .search-panel {
+    padding: 48px 24px 32px 88px;
+  }
+
+  .search-panel__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-panel__form {
+    max-width: 100%;
+  }
+
+  .search-results__grid {
+    grid-template-columns: repeat(2, minmax(160px, 1fr));
+    gap: 18px;
+  }
+}
+
+@media (max-width: 640px) {
+  .search-panel {
+    padding: 32px 16px;
+  }
+
+  .search-panel__input-wrap {
+    width: 100%;
+  }
+
+  .search-results__grid {
+    grid-template-columns: repeat(2, minmax(140px, 1fr));
+    gap: 16px;
+  }
+
+  .search-panel__title {
+    font-size: 32px;
+  }
+
+  .search-card .movie-card__category {
+    bottom: 66px;
+  }
+
+  .search-card__rating {
+    bottom: 42px;
+    font-size: 11px;
+  }
+
+  .search-card .movie-card__title {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 420px) {
+  .search-results__grid {
+    grid-template-columns: 1fr;
+  }
+}
