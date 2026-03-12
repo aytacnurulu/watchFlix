@@ -1,0 +1,91 @@
+/* =========================
+   FAVORITE PAGE
+========================= */
+
+.favorite-page {
+  background: var(--background-color);
+  color: var(--text-color);
+  min-height: 100vh;
+}
+
+.favorite-content {
+  min-height: 100vh;
+}
+
+/* əsas blok */
+.favorite-movies {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: 150px 0 0 100px;
+}
+
+/* başlıq */
+.favorite-title {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: lowercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.favorite-title__arrow {
+  opacity: 0.8;
+}
+
+/* kart konteyneri */
+.favorite-movies-container {
+  width: 100%;
+}
+
+/* kart görünüşü */
+.favorite-movies-container .movie-card {
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.favorite-movies-container .movie-card__img {
+  border-radius: 18px;
+}
+
+.favorite-movies-container .movie-card__title {
+  font-weight: var(--fw-medium);
+}
+
+.favorite-movies-container .movie-card__category {
+  display: inline-flex;
+  width: fit-content;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .favorite-movies {
+    padding: 120px 24px 24px 24px;
+  }
+
+  .favorite-title {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 576px) {
+  .favorite-movies {
+    padding-top: 100px;
+  }
+}
+
+.favorite-movies-container {
+  gap: 0;
+}
+
+.favorite-movies-container .movie-card {
+  border-radius: 0;
+  overflow: hidden;
+  margin-right: -1px;
+}
+
+.favorite-movies-container .movie-card__img {
+  border-radius: 0;
+}
