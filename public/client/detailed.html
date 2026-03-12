@@ -1,215 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Detailed Page</title>
-    <link rel="stylesheet" href="../src/styles/main.css">
-</head>
-<body class="detailed-page">
+
+    <link rel="stylesheet" href="../src/styles/global/main.css" />
+    <link rel="stylesheet" href="../src/styles/pages/detailed.css" />
+  </head>
+
+  <body class="detailed-page">
     <div id="client-sidebar"></div>
 
-    <img class="detailed-hero-image" src="../assets/img/detailed.svg" alt="Detailed Image">
+    <main class="detailed-content">
+      <section class="detailed-hero-section">
+        <img
+          class="detailed-hero-image"
+          src="../assets/img/detailed.svg"
+          alt="Detailed cover"
+        />
+
+        <div class="detailed-hero-overlay"></div>
 
         <section class="detailed-hero">
-    <div class="detailed-hero-panel">
-        <div class="detailed-hero-breadcrumb">
-        <span>MaileHereko</span>
-        <span class="sep">/</span>
-        <span>TV Shows</span>
-        </div>
+          <div class="detailed-hero-panel">
+            <div class="detailed-hero-breadcrumb">
+              <span>MaileHereko</span>
+              <span class="sep">/</span>
+              <span>TV Shows</span>
+            </div>
 
-        <h1 class="detailed-hero-title">lost in space</h1>
-        </div>
+            <h1 class="detailed-hero-title">lost in space</h1>
+          </div>
         </section>
+      </section>
 
-        <section class="detail-block">
-        <!-- LEFT: poster -->
-        <div class="detail-block__poster poster-card" data-trailer="https://www.youtube.com/embed/VIDEO_ID">
-        <button class="poster-card__btn" type="button" aria-label="Play trailer">
-            <img class="poster-card__img" src="../assets/img/lostinspace.svg" alt="Lost in Space poster" />
+      <section class="detail-block">
+        <div
+          class="detail-block__poster poster-card"
+          data-trailer="https://www.youtube.com/embed/VIDEO_ID"
+        >
+          <button class="poster-card__btn" type="button" aria-label="Play trailer">
+            <img
+              class="poster-card__img"
+              src="../assets/img/lostinspace.svg"
+              alt="Lost in Space poster"
+            />
 
-            <!-- center play icon (hoverda görünsün) -->
             <span class="poster-card__play" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="92" height="92">
+              <svg viewBox="0 0 24 24" width="92" height="92">
                 <path fill="currentColor" d="M8 5v14l11-7z"></path>
-            </svg>
+              </svg>
             </span>
-        </button>
+          </button>
         </div>
-        <!-- Overlay -->
+
         <div class="trailer-overlay" id="trailerOverlay" hidden></div>
 
-        <!-- Modal -->
-        <div class="trailer-modal" id="trailerModal" hidden role="dialog" aria-modal="true" aria-label="Trailer modal">
-        <button id="closeTrailer" type="button" aria-label="Close trailer">×</button>
+        <div
+          class="trailer-modal"
+          id="trailerModal"
+          hidden
+          role="dialog"
+          aria-modal="true"
+          aria-label="Trailer modal"
+        >
+          <button id="closeTrailer" type="button" aria-label="Close trailer">×</button>
 
-        <div class="trailer-box">
+          <div class="trailer-box">
             <iframe
-            class="trailer-frame"
-            title="YouTube trailer"
-            src=""
-            allow="autoplay; encrypted-media; picture-in-picture"
-            allowfullscreen>
-            </iframe>
-        </div>
+              class="trailer-frame"
+              title="YouTube trailer"
+              src=""
+              allow="autoplay; encrypted-media; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
         </div>
 
-        <!-- RIGHT: info -->
         <div class="detail-block__info">
-            <div class="detail-block__header">
+          <div class="detail-block__header">
             <h2 class="detail-block__title">have you seen our robot?</h2>
 
-            <a class="detail-block__watch" href="#" target="_blank" rel="noopener">Watch Link</a>
-            <button class="detail-block__add" type="button" aria-label="Add to list">+</button>
-            </div>
+            <a class="detail-block__watch" href="#" target="_blank" rel="noopener">
+              Watch Link
+            </a>
+            <button class="detail-block__add" type="button" aria-label="Add to list">
+              +
+            </button>
+          </div>
 
-            <p class="detail-block__desc">
-            The mission to save Scarecrow takes an unexpected turn, throwing the Resolute into chaos.
-            Judy hatches a plan to get a ship to Alpha Centauri.
-            </p>
+          <p class="detail-block__desc">
+            The mission to save Scarecrow takes an unexpected turn, throwing the
+            Resolute into chaos. Judy hatches a plan to get a ship to Alpha Centauri.
+          </p>
 
-            <div class="detail-block__rating" aria-label="Rating 8.1">
+          <div class="detail-block__rating" aria-label="Rating 8.1">
             <span class="detail-block__star">★</span>
             <span>8.1</span>
-            </div>
+          </div>
 
-            <dl class="detail-meta">
+          <dl class="detail-meta">
             <div class="detail-meta__item">
-                <dt>Type</dt>
-                <dd>TV Show</dd>
-            </div>
-
-            <div class="detail-meta__item">
-                <dt>Status</dt>
-                <dd>Returning Series</dd>
+              <dt>Type</dt>
+              <dd>TV Show</dd>
             </div>
 
             <div class="detail-meta__item">
-                <dt>No. of episodes</dt>
-                <dd>20</dd>
+              <dt>Status</dt>
+              <dd>Returning Series</dd>
             </div>
 
             <div class="detail-meta__item">
-                <dt>First air date</dt>
-                <dd>2018-04-13</dd>
+              <dt>No. of episodes</dt>
+              <dd>20</dd>
             </div>
 
             <div class="detail-meta__item">
-                <dt>Last air date</dt>
-                <dd>2019-04-24</dd>
+              <dt>First air date</dt>
+              <dd>2018-04-13</dd>
             </div>
 
             <div class="detail-meta__item">
-                <dt>Episode run time</dt>
-                <dd>56 min</dd>
+              <dt>Last air date</dt>
+              <dd>2019-04-24</dd>
+            </div>
+
+            <div class="detail-meta__item">
+              <dt>Episode run time</dt>
+              <dd>56 min</dd>
             </div>
 
             <div class="detail-meta__item detail-meta__item--full">
-                <dt>Genres</dt>
-                <dd>Action &amp; Adventure, Sci-Fi &amp; Fantasy, Drama</dd>
+              <dt>Genres</dt>
+              <dd>Action &amp; Adventure, Sci-Fi &amp; Fantasy, Drama</dd>
             </div>
-            </dl>
+          </dl>
 
-
-            <!-- TOP CAST -->
-            <section class="cast-block">
+          <section class="cast-block">
             <h3 class="cast-block__title">top cast</h3>
 
             <div class="cast-row">
-                <article class="cast-card">
-                <img class="cast-card__img" src="../assets/img/actor.svg" alt="Maxwell Jenkins" />
+              <article class="cast-card">
+                <img
+                  class="cast-card__img"
+                  src="../assets/img/actor.svg"
+                  alt="Maxwell Jenkins"
+                />
                 <div class="cast-card__name">maxwell jenkins</div>
                 <div class="cast-card__role">tony slack</div>
-                </article>
+              </article>
 
-                <article class="cast-card">
-                <img class="cast-card__img" src="../assets/img/actor.svg" alt="Maxwell Jenkins" />
+              <article class="cast-card">
+                <img
+                  class="cast-card__img"
+                  src="../assets/img/actor.svg"
+                  alt="Maxwell Jenkins"
+                />
                 <div class="cast-card__name">maxwell jenkins</div>
                 <div class="cast-card__role">tony slack</div>
-                </article>
+              </article>
 
-                <article class="cast-card">
-                <img class="cast-card__img" src="../assets/img/actor.svg" alt="Maxwell Jenkins" />
+              <article class="cast-card">
+                <img
+                  class="cast-card__img"
+                  src="../assets/img/actor.svg"
+                  alt="Maxwell Jenkins"
+                />
                 <div class="cast-card__name">maxwell jenkins</div>
                 <div class="cast-card__role">tony slack</div>
-                </article>
-
+              </article>
             </div>
-            </section>
-            </div>
-        </section>
+          </section>
+        </div>
+      </section>
 
-        <section class="comments">
-        <!-- input + send -->
+      <section class="comments">
         <form class="comments__form">
-            <div class="comments__inputWrap">
-            <img class="comments__avatar" src="../assets/img/profileImg.jpg" alt="User avatar">
+          <div class="comments__inputWrap">
+            <img
+              class="comments__avatar"
+              src="../assets/img/profileImg.jpg"
+              alt="User avatar"
+            />
             <input class="comments__input" type="text" placeholder="your comment..." />
-            </div>
+          </div>
 
-            <button class="comments__send" type="submit" aria-label="Send comment">
-            <!-- arrow icon -->
+          <button class="comments__send" type="submit" aria-label="Send comment">
             <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
-                <path fill="currentColor" d="M3 20v-6l14-2-14-2V4l19 8-19 8z"/>
+              <path fill="currentColor" d="M3 20v-6l14-2-14-2V4l19 8-19 8z" />
             </svg>
-            </button>
+          </button>
         </form>
 
-        <!-- comment list -->
         <div class="comments__list">
-            <article class="comment">
+          <article class="comment">
             <div class="comment__top">
-                <div class="comment__user">
-                <img class="comment__avatar" src="../assets/img/profileImg.jpg" alt="Sarkhan Rahimli">
+              <div class="comment__user">
+                <img
+                  class="comment__avatar"
+                  src="../assets/img/profileImg.jpg"
+                  alt="Sarkhan Rahimli"
+                />
                 <span class="comment__name">Sarkhan Rahimli</span>
-                </div>
-                <time class="comment__time">18:32 today</time>
+              </div>
+              <time class="comment__time">18:32 today</time>
             </div>
 
             <p class="comment__text">
-                Woah, your project looks awesome! How long have you been coding for? I'm still new,
-                but think I want to dive into React as well soon. Perhaps you can give me an insight on
-                where I can learn React? Thanks!
+              Woah, your project looks awesome! How long have you been coding for?
+              I'm still new, but think I want to dive into React as well soon.
+              Perhaps you can give me an insight on where I can learn React? Thanks!
             </p>
-            </article>
+          </article>
         </div>
-        </section>
+      </section>
 
-        <section class="similar-movies">
-            <h3 class="similar-title">similar movies <span class="similar-title__arrow">›</span></h3>
+      <section class="similar-movies">
+        <h3 class="similar-title">
+          similar movies <span class="similar-title__arrow">›</span>
+        </h3>
 
-            <div class="similar-movies-container movie-shelf__row">
-            <article class="movie-card">
-            <img class="movie-card__img" src="../assets/img/home.film1.jpg" alt="Movie 1" />
-            <h5 class="movie-card__category">Fantasy</h5>
+        <div class="similar-movies-container movie-shelf__row">
+          <article class="movie-card">
+            <img class="movie-card__img" src="../assets/img/home.film1.jpg" alt="Wonder Woman" />
+            <h5 class="movie-card__category category-text">Fantasy</h5>
             <h3 class="movie-card__title">Wonder Woman</h3>
-            </article>
-            <article class="movie-card">
-            <img class="movie-card__img" src="../assets/img/home.film1.jpg" alt="Movie 1" />
-            <h5 class="movie-card__category">Fantasy</h5>
+          </article>
+
+          <article class="movie-card">
+            <img class="movie-card__img" src="../assets/img/home.film1.jpg" alt="Wonder Woman" />
+            <h5 class="movie-card__category category-text">Fantasy</h5>
             <h3 class="movie-card__title">Wonder Woman</h3>
-            </article>
-            <article class="movie-card">
-            <img class="movie-card__img" src="../assets/img/home.film1.jpg" alt="Movie 1" />
-            <h5 class="movie-card__category">Fantasy</h5>
+          </article>
+
+          <article class="movie-card">
+            <img class="movie-card__img" src="../assets/img/home.film1.jpg" alt="Wonder Woman" />
+            <h5 class="movie-card__category category-text">Fantasy</h5>
             <h3 class="movie-card__title">Wonder Woman</h3>
-            </article>
-            <article class="movie-card">
-            <img class="movie-card__img" src="../assets/img/home.film1.jpg" alt="Movie 1" />
-            <h5 class="movie-card__category">Fantasy</h5>
+          </article>
+
+          <article class="movie-card">
+            <img class="movie-card__img" src="../assets/img/home.film1.jpg" alt="Wonder Woman" />
+            <h5 class="movie-card__category category-text">Fantasy</h5>
             <h3 class="movie-card__title">Wonder Woman</h3>
-            </article>
-            <article class="movie-card">
-            <img class="movie-card__img" src="../assets/img/home.film1.jpg" alt="Movie 1" />
-            <h5 class="movie-card__category">Fantasy</h5>
+          </article>
+
+          <article class="movie-card">
+            <img class="movie-card__img" src="../assets/img/home.film1.jpg" alt="Wonder Woman" />
+            <h5 class="movie-card__category category-text">Fantasy</h5>
             <h3 class="movie-card__title">Wonder Woman</h3>
-            </article>
-            </div>
-        </section>
-        
+          </article>
+        </div>
+      </section>
+    </main>
 
     <script src="../src/js/components/include-sidebar.js"></script>
     <script src="../src/js/api/detailed.js"></script>
-</body>
+  </body>
 </html>
