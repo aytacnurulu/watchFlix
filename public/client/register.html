@@ -5,56 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register</title>
 
-    <!-- Base -->
-    <link rel="stylesheet" href="../src/styles/main.css" />
-    <!-- Auth Component -->
-    <link rel="stylesheet" href="../src/styles/auth.css" />
-
-    <!-- FontAwesome (toggle ikonlar üçün) -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
+    <link rel="stylesheet" href="../src/styles/global/main.css" />
+    <link rel="stylesheet" href="../src/styles/pages/register.css" />
   </head>
 
-  <body>
+  <body class="register-page">
     <main class="auth">
       <div class="auth__wrap">
         <div class="brand">
-          <img class="brand__logo" src="../assets/img/logo.svg" alt="Filmalisa" />
+          <img
+            class="brand__logo"
+            src="../assets/img/logo.svg"
+            alt="Filmalisa"
+          />
           <div class="brand__name">filmalisa</div>
         </div>
 
         <h2 class="auth__title">register</h2>
 
         <form class="auth__form">
-          <!-- Full name -->
           <div class="field">
             <div class="auth-input-group">
               <img class="icon icon--left" src="../assets/icons/user.svg" alt="" />
-              <input class="input" type="text" placeholder="full name" autocomplete="name" />
+              <input
+                class="input"
+                type="text"
+                placeholder="full name"
+                autocomplete="name"
+              />
             </div>
           </div>
 
-          <!-- Email -->
           <div class="field">
             <div class="auth-input-group">
               <img class="icon icon--left" src="../assets/icons/mail.svg" alt="" />
-              <input class="input" type="email" placeholder="email" autocomplete="email" />
+              <input
+                class="input"
+                type="email"
+                placeholder="email"
+                autocomplete="email"
+              />
             </div>
           </div>
 
-          <!-- Password -->
           <div class="field">
             <div class="auth-input-group">
               <img class="icon icon--left" src="../assets/icons/lock.svg" alt="" />
-              <input id="password" class="input" type="password" placeholder="password" autocomplete="new-password" />
+              <input
+                id="register-password"
+                class="input"
+                type="password"
+                placeholder="password"
+                autocomplete="new-password"
+              />
 
               <button
                 type="button"
                 class="icon-btn"
                 aria-label="Toggle password"
-                id="togglePass"
+                id="toggleRegisterPass"
               >
                 <span class="icon-eye-open"><i class="fa-solid fa-eye"></i></span>
                 <span class="icon-eye-closed" hidden><i class="fa-solid fa-eye-slash"></i></span>
@@ -63,10 +72,10 @@
           </div>
 
           <div class="auth__actions">
-            <a class="link" href="../client/login.html">Do you have an account? Login here</a>
+            <a class="link" href="./login.html">Do you have an account? Login here</a>
           </div>
 
-          <button class="btn" type="submit">register</button>
+          <button class="btn register-btn" type="submit">register</button>
         </form>
       </div>
     </main>
