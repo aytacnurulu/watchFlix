@@ -189,10 +189,9 @@
   overflow: hidden;
   text-decoration: none;
   transition:
-    transform var(--tr-fast),
-    box-shadow var(--tr-fast),
-    filter var(--tr-fast),
-    opacity var(--tr-fast);
+    background-color 0.2s ease,
+    opacity 0.2s ease,
+    border-color 0.2s ease;
 }
 
 /* full width yalnız lazım olan yerlərdə */
@@ -202,39 +201,20 @@
 }
 
 .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-1);
-  filter: brightness(1.05);
+  background-color: #a15ee8;
 }
 
 .btn:active {
-  transform: translateY(0px);
-  filter: brightness(0.98);
+  opacity: 0.92;
 }
 
 .btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
-  box-shadow: none;
-  transform: none;
 }
 
 .btn::after {
-  content: "";
-  position: absolute;
-  inset: -40%;
-  transform: translateX(-120%) rotate(20deg);
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.25),
-    transparent
-  );
-  transition: transform 600ms ease;
-}
-
-.btn:hover::after {
-  transform: translateX(120%) rotate(20deg);
+  display: none;
 }
 
 /* =========================
