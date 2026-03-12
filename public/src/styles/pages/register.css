@@ -1,0 +1,81 @@
+/* =========================
+   REGISTER PAGE
+========================= */
+
+.register-page {
+  min-height: 100vh;
+  background: var(--background-color);
+}
+
+.register-page .auth {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: var(--space-7) var(--space-5);
+}
+
+.register-page .auth__wrap {
+  width: 100%;
+  max-width: 520px;
+  text-align: center;
+  display: grid;
+  gap: var(--space-5);
+}
+
+.register-page .brand {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-3);
+}
+
+.register-page .brand__logo {
+  width: 150px;
+  height: auto;
+}
+
+.register-page .brand__name {
+  font-size: var(--fs-title);
+  font-weight: var(--fw-regular);
+  letter-spacing: var(--ls-tight);
+  text-transform: lowercase;
+}
+
+.register-page .auth__title {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-regular);
+  color: var(--secondary-text-color);
+  text-transform: lowercase;
+}
+
+.register-page .auth__form {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.register-page .field {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.register-page .auth__actions {
+  display: grid;
+  justify-items: start;
+}
+
+.register-page .link {
+  font-size: var(--fs-small);
+}
+
+.register-page .register-btn {
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .register-page .auth {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .register-page .auth__wrap {
+    max-width: 100%;
+  }
+}

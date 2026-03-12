@@ -1,6 +1,5 @@
 /* =========================
-   LOGIN / AUTH COMPONENT CSS
-   Base CSS-inə uyğun
+   AUTH / LOGIN COMPONENTS
 ========================= */
 
 /* Auth layout */
@@ -56,29 +55,24 @@
   gap: var(--space-2);
 }
 
-/* Input group */
-.input-group {
+/* Bootstrap conflict olmasın deyə bunu istifadə et */
+.auth-input-group {
   position: relative;
   display: flex;
   align-items: center;
 }
 
-/* INPUT FIX: radius + appearance reset */
+/* Input */
 .input {
   width: 100%;
   height: var(--control-h);
-
   padding-left: calc(var(--space-6) + var(--icon-size));
   padding-right: calc(var(--control-h) + var(--space-3));
-
   border-radius: var(--radius-2);
   border: 1px solid var(--border-color);
   background: var(--surface-color);
   color: var(--text-color);
-
   outline: none;
-
-  /* kvadrat problemi və default görünüşləri tam söndürür */
   -webkit-appearance: none;
   appearance: none;
   background-clip: padding-box;
@@ -119,30 +113,34 @@
   left: var(--space-4);
   top: 50%;
   transform: translateY(-50%);
+  z-index: 2;
 }
 
-/* Password toggle button */
+/* Password toggle */
 .icon-btn {
   position: absolute;
   right: var(--space-4);
   top: 50%;
   transform: translateY(-50%);
-
   height: var(--control-h);
   width: var(--control-h);
-
   display: grid;
   place-items: center;
-
   background: transparent;
   border: 0;
   padding: 0;
   cursor: pointer;
-
   color: var(--secondary-text-color);
-
+  z-index: 3;
   -webkit-appearance: none;
   appearance: none;
+  transition:
+    transform var(--tr-fast),
+    opacity var(--tr-fast);
+}
+
+.icon-btn:hover {
+  opacity: 0.9;
 }
 
 .icon-btn:active {
@@ -171,22 +169,25 @@
   opacity: 0.85;
 }
 
-/* Button (with animation) */
+/* =========================
+   BUTTON
+========================= */
+
 .btn {
   height: var(--control-h);
-  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--space-6);
   border-radius: var(--radius-2);
   border: 1px solid transparent;
-
   background: var(--primary-color);
   color: var(--text-color);
   font-weight: var(--fw-medium);
-
   cursor: pointer;
-
   position: relative;
   overflow: hidden;
-
+  text-decoration: none;
   transition:
     transform var(--tr-fast),
     box-shadow var(--tr-fast),
@@ -194,20 +195,23 @@
     opacity var(--tr-fast);
 }
 
-/* Hover lift */
+/* full width yalnız lazım olan yerlərdə */
+.auth .btn,
+.auth__form .btn {
+  width: 100%;
+}
+
 .btn:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-1);
   filter: brightness(1.05);
 }
 
-/* Click press */
 .btn:active {
   transform: translateY(0px);
   filter: brightness(0.98);
 }
 
-/* Disabled */
 .btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
@@ -215,7 +219,6 @@
   transform: none;
 }
 
-/* Shine animation */
 .btn::after {
   content: "";
   position: absolute;
@@ -233,6 +236,11 @@
 .btn:hover::after {
   transform: translateX(120%) rotate(20deg);
 }
+
+/* =========================
+   CLIENT SIDEBAR
+========================= */
+
 .client-sidebar {
   position: fixed;
   left: 0;
@@ -249,49 +257,31 @@
   z-index: 100;
 }
 
-/* .client-sidebar a img:nth-child(0) {
-  padding-top: 40px;
-  padding-bottom: 70px;
-} */
-
 .client-sidebar__icons {
   display: flex;
   flex-direction: column;
   gap: var(--space-8);
 }
 
-/* Home component */
+/* =========================
+   SHARED SMALL COMPONENTS
+========================= */
+
 .category-text {
   font-size: var(--fs-small);
   color: var(--main-blue);
   background-color: rgba(0, 0, 0, 0.4);
   padding: var(--space-1) var(--space-3);
   border-radius: var(--radius-1);
-  letter-spacing: var(--ls-wide);
-  columns: var(--main-blue);
 }
 
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-/* MOVIE CARDS */
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-
 /* =========================
-   MOVIE SHELF (Reusable Component)
+   MOVIE SHELF
 ========================= */
 
-/* Default ölçülər dəyişmək üçün CSS variables */
 .movie-shelf {
   --shelf-padding: 56px;
   --shelf-gap: var(--space-4);
-
   --card-w: 250px;
   --card-h: 350px;
 
@@ -299,52 +289,45 @@
   flex-direction: column;
   align-items: flex-start;
   padding: var(--shelf-padding);
+  padding-left: 70px;
   gap: var(--space-6);
 }
 
-/* Title */
 .movie-shelf__title {
   font-size: var(--fs-h2);
   font-weight: var(--fw-regular);
   padding-left: var(--space-4);
 }
+
 .movie-shelf__arrow {
   font-size: var(--fs-h2);
   font-weight: var(--fw-regular);
   padding-left: var(--space-2);
 }
 
-/* Horizontal row (scroll) */
 .movie-shelf__row {
   display: flex;
   gap: var(--shelf-gap);
-
   width: 100%;
   max-width: 100%;
-
   overflow-x: auto;
   overflow-y: hidden;
   flex-wrap: nowrap;
-
   -webkit-overflow-scrolling: touch;
-
-  /* scrollbar gizlə */
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
+
 .movie-shelf__row::-webkit-scrollbar {
   display: none;
   height: 0;
 }
 
-/* Card */
 .movie-card {
   width: var(--card-w);
   height: var(--card-h);
-
   flex: 0 0 auto;
   position: relative;
-
   display: flex;
   flex-direction: column;
 }
@@ -356,7 +339,6 @@
   display: block;
 }
 
-/* Overlays */
 .movie-card__category,
 .movie-card__title {
   position: absolute;
@@ -374,18 +356,12 @@
   color: var(--text-color);
 }
 
-/* =========================
-   Modifiers (Reusable)
-========================= */
-
-/* daha kiçik ölçü (Action üçün də istifadə edirsən) */
 .movie-shelf--sm {
   --shelf-padding: 40px;
   --card-w: 220px;
   --card-h: 310px;
 }
 
-/* Newly added: gap=0 + bir az böyük kart + New badge */
 .movie-shelf--new {
   --shelf-gap: 0;
   --card-w: 260px;
@@ -398,13 +374,11 @@
   top: var(--space-3);
   left: var(--space-3);
   z-index: 3;
-
   color: var(--background-color);
   font-size: var(--fs-small);
   font-weight: var(--fw-bold);
   padding: var(--space-1) var(--space-2);
   border-radius: var(--radius-2);
-
   background: linear-gradient(
     45deg,
     #ff3cac,
@@ -416,248 +390,4 @@
     #ff3cac
   );
   pointer-events: none;
-}
-
-.movie-shelf {
-  padding-left: 70px;
-}
-
-/* =========================
-   AUTH / LOGIN COMPONENT CSS
-   (Bootstrap .input-group ilə toqquşma yoxdur)
-========================= */
-
-.auth {
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  padding: var(--space-7) var(--space-5);
-}
-
-.auth__wrap {
-  width: 100%;
-  max-width: var(--auth-max);
-  text-align: center;
-  display: grid;
-  gap: var(--space-5);
-}
-
-.brand {
-  display: grid;
-  justify-items: center;
-  gap: var(--space-3);
-}
-
-.brand__logo {
-  width: 150px;
-  height: auto;
-}
-
-.brand__name {
-  font-size: var(--fs-title);
-  font-weight: var(--fw-regular);
-  letter-spacing: var(--ls-tight);
-  text-transform: lowercase;
-}
-
-.auth__title {
-  font-size: var(--fs-h2);
-  font-weight: var(--fw-regular);
-  color: var(--secondary-text-color);
-}
-
-.auth__form {
-  display: grid;
-  gap: var(--space-4);
-}
-
-.field {
-  display: grid;
-  gap: var(--space-2);
-}
-
-/* ✅ Bootstrap input-group conflict fix: yeni ad */
-.auth-input-group {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-/* LEFT ICON */
-.icon {
-  position: absolute;
-  width: var(--icon-size);
-  height: var(--icon-size);
-  opacity: 0.65;
-  pointer-events: none;
-}
-
-.icon--left {
-  left: var(--space-4);
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
-}
-
-/* ✅ INPUT (radius fix + appearance reset) */
-.input {
-  width: 100%;
-  height: var(--control-h);
-
-  padding-left: calc(var(--space-6) + var(--icon-size));
-  padding-right: calc(var(--control-h) + var(--space-3));
-
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-2);
-  background: var(--surface-color);
-  color: var(--text-color);
-
-  outline: none;
-
-  /* inputun kvadrat qalmasını qəti söndürür */
-  -webkit-appearance: none;
-  appearance: none;
-  background-clip: padding-box;
-  overflow: hidden;
-}
-
-.input::placeholder {
-  color: var(--secondary-text-color);
-  opacity: 0.55;
-}
-
-.input:focus {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 var(--space-2) var(--focus-ring);
-}
-
-/* Chrome autofill fix */
-.input:-webkit-autofill,
-.input:-webkit-autofill:hover,
-.input:-webkit-autofill:focus,
-.input:-webkit-autofill:active {
-  -webkit-text-fill-color: var(--text-color);
-  -webkit-box-shadow: 0 0 0 1000px var(--surface-color) inset;
-  box-shadow: 0 0 0 1000px var(--surface-color) inset;
-  transition: background-color 9999s ease-out 0s;
-}
-
-/* Password toggle button */
-.icon-btn {
-  position: absolute;
-  right: var(--space-4);
-  top: 50%;
-  transform: translateY(-50%);
-
-  height: var(--control-h);
-  width: var(--control-h);
-
-  display: grid;
-  place-items: center;
-
-  background: transparent;
-  border: 0;
-  padding: 0;
-  cursor: pointer;
-
-  color: var(--secondary-text-color);
-  z-index: 3;
-
-  -webkit-appearance: none;
-  appearance: none;
-
-  transition:
-    transform var(--tr-fast),
-    opacity var(--tr-fast);
-}
-
-.icon-btn:hover {
-  opacity: 0.9;
-}
-
-.icon-btn:active {
-  transform: translateY(calc(-50% + 1px));
-}
-
-/* Actions */
-.auth__actions {
-  display: grid;
-  justify-items: start;
-}
-
-.link {
-  color: var(--secondary-text-color);
-  font-size: var(--fs-small);
-  text-decoration: underline;
-  text-underline-offset: var(--space-1);
-}
-
-.link:hover {
-  color: var(--primary-color);
-}
-
-/* =========================
-   BUTTON (animasiya)
-========================= */
-.btn {
-  height: var(--control-h);
-  width: 100%;
-
-  padding: 0 var(--space-6);
-  border-radius: var(--radius-2);
-  border: 1px solid transparent;
-
-  background: var(--primary-color);
-  color: var(--text-color);
-  font-weight: var(--fw-medium);
-
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-
-  transition:
-    transform var(--tr-fast),
-    filter var(--tr-fast),
-    box-shadow var(--tr-fast),
-    opacity var(--tr-fast);
-}
-
-/* hover lift + glow */
-.btn:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.06);
-  box-shadow: var(--shadow-1);
-}
-
-/* click press */
-.btn:active {
-  transform: translateY(0px);
-  filter: brightness(0.98);
-}
-
-/* disabled */
-.btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
-}
-
-/* shine effect */
-.btn::after {
-  content: "";
-  position: absolute;
-  inset: -50%;
-  transform: translateX(-120%) rotate(20deg);
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.25),
-    transparent
-  );
-  transition: transform 650ms ease;
-}
-
-.btn:hover::after {
-  transform: translateX(120%) rotate(20deg);
 }

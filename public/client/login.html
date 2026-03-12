@@ -1,63 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
 
-  <!-- Base -->
-  <link rel="stylesheet" href="../src/styles/main.css" />
-  <!-- Component (Login/Auth) -->
-  <link rel="stylesheet" href="../src/styles/auth.css" />
+    <link rel="stylesheet" href="../src/styles/global/main.css" />
+    <link rel="stylesheet" href="../src/styles/pages/login.css" />
+  </head>
 
-  <!-- FontAwesome (əgər lazımdırsa) -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  />
-</head>
+  <body class="login-page">
+    <main class="auth">
+      <div class="auth__wrap">
+        <div class="brand">
+          <img
+            class="brand__logo"
+            src="../assets/img/logo.svg"
+            alt="Filmalisa"
+          />
+          <div class="brand__name">filmalisa</div>
+        </div>
 
-<body>
-  <main class="auth">
-    <div class="auth__wrap">
+        <h2 class="auth__title">login</h2>
 
-      <div class="brand">
-        <img class="brand__logo" src="../assets/img/logo.svg" alt="Filmalisa" />
-        <div class="brand__name">filmalisa</div>
+        <form class="auth__form">
+          <div class="field">
+            <div class="auth-input-group">
+              <img class="icon icon--left" src="../assets/icons/mail.svg" alt="" />
+              <input
+                class="input"
+                type="email"
+                placeholder="email"
+                autocomplete="email"
+              />
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="auth-input-group">
+              <img class="icon icon--left" src="../assets/icons/lock.svg" alt="" />
+              <input
+                id="login-password"
+                class="input"
+                type="password"
+                placeholder="password"
+                autocomplete="current-password"
+              />
+
+              <button
+                type="button"
+                class="icon-btn"
+                aria-label="Toggle password"
+                id="toggleLoginPass"
+              >
+                <span class="icon-eye-open"><i class="fa-solid fa-eye"></i></span>
+                <span class="icon-eye-closed" hidden><i class="fa-solid fa-eye-slash"></i></span>
+              </button>
+            </div>
+          </div>
+
+          <div class="auth__actions">
+            <a class="link" href="./register.html">Don't have an account? Register here</a>
+          </div>
+
+          <button class="btn login-btn" type="submit">login</button>
+        </form>
       </div>
+    </main>
 
-      <h2 class="auth__title">login</h2>
-
-      <form class="auth__form">
-        <div class="field">
-          <div class="auth-input-group">
-            <img class="icon icon--left" src="../assets/icons/mail.svg" alt="" />
-            <input class="input" type="email" placeholder="email" autocomplete="email" />
-          </div>
-        </div>
-
-        <div class="field">
-          <div class="auth-input-group">
-            <img class="icon icon--left" src="../assets/icons/lock.svg" alt="" />
-            <input id="password" class="input" type="password" placeholder="password" autocomplete="current-password" />
-
-            <button type="button" class="icon-btn" aria-label="Toggle password" id="togglePass">
-              <span class="icon-eye-open"><i class="fa-solid fa-eye"></i></span>
-              <span class="icon-eye-closed" hidden><i class="fa-solid fa-eye-slash"></i></span>
-            </button>
-          </div>
-        </div>
-
-        <div class="auth__actions">
-          <a class="link" href="../client/register.html">Register here</a>
-        </div>
-
-        <button class="btn" type="submit">login</button>
-      </form>
-
-    </div>
-  </main>
-
-  <script src="../src/js/utils/toggle.js"></script>
-</body>
+    <script src="../src/js/utils/toggle.js"></script>
+  </body>
 </html>
