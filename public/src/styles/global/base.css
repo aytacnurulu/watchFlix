@@ -1,17 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
-:root{
+:root {
   --roboto-font-family: "Roboto", sans-serif;
 
   /* colors */
   --background-color: black;
-  --landing-border-color:#1D1D1D;
-  --surface-color: rgba(0,0,0,.10);          /* input bg kimi */
-  --text-color: #FFFFFF;
-  --secondary-text-color: #C3C8D4;
-  --main-blue:rgba(15, 239, 253, 1);
-  --primary-color: #9B51E0;
-  --border-color: #323B54;
-  --focus-ring: rgba(155,81,224,.25);
+  --landing-border-color: #1d1d1d;
+  --surface-color: rgba(0, 0, 0, 0.1); /* input bg kimi */
+  --text-color: #ffffff;
+  --secondary-text-color: #c3c8d4;
+  --main-blue: rgba(15, 239, 253, 1);
+  --primary-color: #9b51e0;
+  --border-color: #323b54;
+  --focus-ring: rgba(155, 81, 224, 0.25);
+
+  --admin-sidebar-width: 260px;
+  --admin-topbar-height: 88px;
+  --admin-page-padding-x: 32px;
+  --admin-page-padding-y: 24px;
+  --admin-card-bg: #1e1e1e;
+  --admin-card-bg-2: #2d2d2d;
+  --admin-hover-bg: #652f8d;
+  --admin-muted-text: #c3c8d4;
+  --admin-border-soft: rgba(255, 255, 255, 0.08);
+  --admin-danger: #dc3545;
 
   /* spacing scale */
   --space-1: 4px;
@@ -32,7 +43,7 @@
   /* sizes */
   --container-max: 1120px;
   --auth-max: 520px;
-  --control-h: 48px;              /* input/button h */
+  --control-h: 48px; /* input/button h */
   --icon-size: 18px;
 
   /* typography (səndə var idi, saxlayıram) */
@@ -56,13 +67,13 @@
   --fs-h2: clamp(18px, 2vw, 24px);
 
   /* shadows */
-  --shadow-1: 0 8px 24px rgba(0,0,0,.35);
+  --shadow-1: 0 8px 24px rgba(0, 0, 0, 0.35);
 
   /* transitions */
-  --tr-fast: .15s ease;
+  --tr-fast: 0.15s ease;
 }
 
-body{
+body {
   font-family: var(--roboto-font-family);
   background: var(--background-color);
   color: var(--text-color);
@@ -70,7 +81,9 @@ body{
 }
 
 /* 1. Use a more-intuitive box-sizing model */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -94,18 +107,31 @@ body {
 }
 
 /* 6. Improve media defaults */
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
 
 /* 7. Inherit fonts for form controls */
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
 /* 8. Avoid text overflows */
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
 }
 
@@ -113,13 +139,19 @@ p, h1, h2, h3, h4, h5, h6 {
 p {
   text-wrap: pretty;
 }
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   text-wrap: balance;
 }
 
 /*
   10. Create a root stacking context
 */
-#root, #__next {
+#root,
+#__next {
   isolation: isolate;
 }

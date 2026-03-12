@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Login | WatchFlix</title>
+
+    <link rel="stylesheet" href="../src/styles/global/main.css" />
+    <link rel="stylesheet" href="../src/styles/pages/admin/login.css" />
+  </head>
+  <body>
+    <main class="admin-login">
+      <section class="admin-login__wrap">
+        <div class="admin-login__brand">
+          <img
+            class="admin-login__logo"
+            src="../assets/img/logo.svg"
+            alt="WatchFlix logo"
+          />
+          <h1 class="admin-login__title">Admin</h1>
+        </div>
+
+        <form class="admin-login__form" action="#" method="post" autocomplete="on">
+          <div class="field">
+            <div class="auth-input-group">
+              <i class="fa-regular fa-envelope icon icon--left" aria-hidden="true"></i>
+              <input
+                class="input"
+                id="admin-username"
+                name="username"
+                type="text"
+                placeholder="username"
+                autocomplete="username"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="auth-input-group">
+              <i class="fa-solid fa-lock icon icon--left" aria-hidden="true"></i>
+
+              <input
+                class="input"
+                id="admin-password"
+                name="password"
+                type="password"
+                placeholder="password"
+                autocomplete="current-password"
+                required
+              />
+
+              <button
+                class="icon-btn admin-login__toggle"
+                id="togglePassword"
+                type="button"
+                aria-label="Toggle password visibility"
+                aria-pressed="false"
+              >
+                <i
+                  class="fa-regular fa-eye admin-login__eye admin-login__eye--open"
+                  aria-hidden="true" 
+                ></i>
+                <i
+                  class="fa-regular fa-eye-slash admin-login__eye admin-login__eye--closed"
+                  aria-hidden="true"
+                ></i>
+              </button>
+            </div>
+          </div>
+
+          <button class="btn admin-login__submit" type="submit">login</button>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
